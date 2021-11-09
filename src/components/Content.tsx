@@ -1,25 +1,10 @@
+import { useContext } from "react";
+import { MoviesContext } from "../contexts/MoviesContext";
 import { MovieCard } from "./MovieCard";
 
-interface ContentProps {
-  selectedGenre: {
-    id: number;
-    name: 'action' | 'comedy' | 'documentary' | 'drama' | 'horror' | 'family';
-    title: string;
-  };
+export function Content() {
 
-  movies: Array<{
-    imdbID: string;
-    Title: string;
-    Poster: string;
-    Ratings: Array<{
-      Source: string;
-      Value: string;
-    }>;
-    Runtime: string;
-  }>;
-}
-
-export function Content({ selectedGenre, movies }: ContentProps) {
+  const { movies, selectedGenre } = useContext(MoviesContext)
   return (
     <div className="container">
       <header>
